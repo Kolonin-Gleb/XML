@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--Описание содержимого кор. эл. timeTable-->
+  <xs:element name="timeTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="offices" type="officesType"/>
+        <xs:element name="lessons" type="lessonsType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!--Описание сложных типов-->
+  
+  <xs:complexType name="officesType">
+    <xs:sequence>
+      <!--Офисов может быть бесконечно много-->
+      <xs:element name="office" type="officeType"  minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="officeType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+    </xs:sequence>
+    
+    <!--Описание атрибута-->
+    <xs:attribute name="code" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+
+  <xs:complexType name="lessonsType">
+      <xs:sequence>
+      <!--Уроков может быть бесконечно много-->
+      <xs:element name="lesson" type="lessonType"  minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="lessonType">
+    <xs:sequence>
+      <xs:element name="thema" type="xs:string"/>
+      <xs:element name="date" type="xs:date"/>
+      <xs:element name="time" type="xs:time"/>
+    </xs:sequence>
+    
+    <!--Описание атрибутов-->
+    <xs:attribute name="room" type="xs:string" use="required"/>
+    <xs:attribute name="complex" type="xs:string" use="required"/>
+  </xs:complexType>  
+  
+</xs:schema>
+

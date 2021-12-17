@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--Объявление элементов-->
+
+<xs:element name="persons">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="person" type="PersonType" minOccurs="1" maxOccurs="unbounded"/> <!--От 1 до беск. вложенных эл. person -->
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!--Объявление сложных типов-->
+
+<xs:complexType name="PersonType">
+  <xs:sequence>
+    <xs:element name="name" type="NameType"/>
+    <xs:element name="contacts" type="ContactsType"/>
+  </xs:sequence>
+  
+  <!--Описание атрибута-->
+  <xs:attribute name="id" type="xs:ID" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="NameType">
+  <xs:all>
+    <!--RightNameType - наш простой тип данных -->
+    <xs:element name="first" type="RightNameType"/> 
+    <xs:element name="last" type="RightNameType"/>
+  </xs:all>
+</xs:complexType>
+
+<xs:complexType name="ContactsType">
+  <xs:sequence>
+   <!--Полное объявление и описание элемента без выноса его типов данных-->
+    <xs:element name="phone">
+      <xs:complexType>
+        <xs:simpleContent> <!--Что это?-->
+          <xs:extension base="xs:string"> <!--Содержимым будет строка-->
+            <!--Определение атрибутов, которые могут содержаться в элементе-->
+            <xs:attribute name="mobile" type="xs:boolean" use="optional" default="true"/>
+            <xs:attribute name="type" type="PhoneType" use="optional" default="home"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="email" type="xs:string"/>
+    
+  </xs:sequence>
+</xs:complexType>
+
+<!--Объявление простых типов-->
+
+<!--Это простой тип для атрибута-->
+<xs:simpleType name="PhoneType">
+  <xs:restriction base="xs:token"> <!--Этот тип данных базируется на типе данных token-->
+    <xs:enumeration value="home"/>
+    <xs:enumeration value="work"/>
+    <xs:enumeration value="personal"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="PhoneFormatType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="\d{3}-\d{2}-\d{2}"/> <!-- -->
+  </xs:restriction>
+</xs:simpleType>
+
+<!--RightNameType - наш простой тип данных -->
+<!--Он базируется на типе xs:string, но рег. выражение огр. возможный конент буквами -->
+<xs:simpleType name="RightNameType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[a-zA-Zа-яА-ЯёЁ]{2,}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="AgeType">
+  <xs:restriction base="xs:integer">
+    <!--Ограничение диапозона, что может принимать объект типа AgeType -->
+    <xs:minInclusive value="16"/>
+    <xs:maxInclusive value="65"/>
+  </xs:restriction>
+</xs:simpleType>
+
+</xs:schema>

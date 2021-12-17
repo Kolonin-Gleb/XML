@@ -1,0 +1,12 @@
+<!-- DTD only-->
+  <!ELEMENT catalog (book+) >
+  <!ELEMENT book (title, author+, price, publisher?) >
+  <!ELEMENT title (#PCDATA) >
+  <!ELEMENT author (#PCDATA) >
+  <!ELEMENT price (#PCDATA) >
+  <!ELEMENT publisher (#PCDATA) >
+  
+  
+  <!ATTLIST book isbn CDATA #IMPLIED>
+  <!ATTLIST price currency CDATA #REQUIRED>
+

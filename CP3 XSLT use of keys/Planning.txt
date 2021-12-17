@@ -1,0 +1,6 @@
+https://ithub.bulgakov.app/lessons/27211
+
+Чтобы не делать apply-templates можно сделать 3 цикла for-each
+
+Нужно будет создать 2 ключа.
+

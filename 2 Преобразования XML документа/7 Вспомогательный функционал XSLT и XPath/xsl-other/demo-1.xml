@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="demo-1.xsl" ?>
+
+<demo message="Мега документ">
+	<test message="hello, world"
+		xmlns="http://ithub.ru/namespace1">123</test>
+		
+	<!-- Этот пример показывает использование пространств имен -->	
+		
+	<test message="Привет МИР"
+		xmlns="http://ithub.ru/namespace2">987</test>
+</demo>

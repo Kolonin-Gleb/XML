@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--Объявления элементов -->
+
+  <xs:element name="root" type="myType"/>
+  
+<!--Опписание типов данных -->
+
+  <xs:complexType name="myType">
+    <xs:all>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="age" type="xs:integer"/>
+      <xs:element name="birthday" type="xs:dateTime"/>
+      <xs:element name="test" type="xs:byte"/>
+    </xs:all>
+  </xs:complexType>
+  
+</xs:schema>

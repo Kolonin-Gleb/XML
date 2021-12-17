@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="demo-2.xsl"?>
+<menu>
+	<menuItem title="Поисковики">
+		<menuItem title="Гугль" link="http://www.google.ru" />
+		<menuItem title="Яндекс" link="http://www.yandex.ru" />
+		<menuItem title="Бинг" link="http://www.bing.com" />
+	</menuItem>
+	
+	<menuItem title="IThub">
+		<menuItem title="Курсы для разработчиков">
+			<menuItem title="PHP. Создание сайтов и сервисов" link="http://ithub.ru" />
+			<menuItem title="XML. Продвинутые методы разработки" link="http://ithub.ru" />
+			<menuItem title="Node.js. Профессиональная разработка" link="http://ithub.ru" />
+			<menuItem title="JavaScript. Использование фреймворков" link="http://ithub.ru" />
+		</menuItem>
+		<menuItem title="Курсы для программистов">
+			<menuItem title="Python. Основы программирования" link="http://ithub.ru" />
+			<menuItem title="Java. Машинное обучение" link="http://ithub.ru" />
+      <menuItem title="Физкультура. Тренировка мозга" link="http://ithub.ru" />			
+		</menuItem>	
+	</menuItem>
+</menu>

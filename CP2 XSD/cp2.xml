@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Подключение схемы, что описывает документ-->
+<timeTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+
+<!--Вложенные элементы-->
+
+<offices>
+   <office code="КУ">
+       <name>Курская</name>
+       <address>Костомаровский пер., дом 3, стр 4, Москва, 105120</address>
+   </office>
+   
+  <office code="ВТ">
+       <name>ВДНХ Техноград</name>
+       <address>пр-т Мира, 119 строение 63, Москва, 129223</address>
+   </office>
+</offices>
+
+<lessons>
+   <lesson room="27" complex="КУ">
+     <thema>Обзор XML технологий</thema>
+     <date>2021-01-19</date>
+     <time>10:00:00</time>    
+   </lesson>
+   
+   <lesson room="105" complex="BT">
+     <thema>Введение в XML</thema>
+     <date>2021-01-23</date>
+     <time>17:20:00</time>
+    </lesson>
+   
+   <lesson room="105" complex="BT">
+     <thema>Правила XML</thema>
+     <date>2021-01-26</date>
+     <time>15:30:00</time>    
+   </lesson>
+   
+   <lesson room="27" complex="КУ">
+     <thema>Пространства имён XML</thema>
+     <date>2021-01-29</date>
+     <time>10:00:00</time>    
+   </lesson>  
+</lessons>
+
+</timeTable>

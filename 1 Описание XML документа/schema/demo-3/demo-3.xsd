@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--Объявление элементов-->
+
+<xs:element name="persons"> <!--Корневой элемент-->
+  <xs:complexType>
+    <xs:sequence> <!--Последовательность нужна, даже если всего 1 элемент-->
+      <xs:element name="person" type="PersonType"/> <!--Вложенный элемент-->
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<!--Объявление типов данных-->
+
+<xs:complexType name="PersonType">
+  <xs:sequence>
+    <xs:element name="name" type="NameType"/> <!--Вложенный элемент-->
+    <xs:element name="contacts" type="ContactsType"/> <!--Вложенный элемент-->
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NameType">
+  <xs:all>
+    <xs:element name="first" type="xs:string"/> <!--Вложенный элемент-->
+    <xs:element name="last" type="xs:string"/> <!--Вложенный элемент-->
+  </xs:all>
+</xs:complexType>
+
+<xs:complexType name="ContactsType">
+  <xs:sequence>
+    <xs:element name="phone" type="xs:string"/> <!--Вложенный элемент-->
+    <xs:element name="email" type="xs:string"/> <!--Вложенный элемент-->
+  </xs:sequence>
+</xs:complexType>
+
+</xs:schema>

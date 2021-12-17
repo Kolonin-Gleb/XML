@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persons xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="demo-4.xsd">
+
+  <person id="A1"> <!-- id это атрибут-->
+    <name> <!-- 1 вложенный элемент-->
+      <first>John</first>
+      <last>Smith</last>
+    </name>
+    <contacts> <!-- 2 вложенный элемент-->
+      <phone type="work">123dt-45-78</phone>
+      <email>john@smith.org</email>
+    </contacts>
+  </person>
+  
+  <person id="A2">
+    <name>
+      <first>John</first>
+      <last>Smith</last>
+    </name>
+    <contacts>
+      <phone mobile="true" type="work">123-45-78</phone>
+      <email>john@smith.org</email>
+    </contacts>
+  </person>
+  
+  <person id="A3">
+    <name>
+      <first>John</first>
+      <last>Smith</last>
+    </name>
+    <contacts>
+      <phone mobile="false">123-45-78</phone>
+      <email>john@smith.org</email>
+    </contacts>
+  </person>
+  
+</persons>

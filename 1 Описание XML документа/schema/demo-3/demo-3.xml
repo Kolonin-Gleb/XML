@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persons xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="demo-3.xsd">
+
+  <person>
+  
+    <name>
+      <first>John</first>
+      <last>Smith</last>
+    </name>
+    
+    <contacts>
+      <phone>123-45-78</phone>
+      <email>john@smith.org</email>
+    </contacts>
+    
+  </person>
+  
+</persons>

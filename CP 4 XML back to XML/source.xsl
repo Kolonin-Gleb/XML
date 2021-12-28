@@ -1,14 +1,19 @@
 ﻿<?xml version = "1.0" encoding = "UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
+    <!--Набор аттрибутов. Значения атрибутов берутся из X-path выражений-->
+    <xsl:attribute-set name="item-attributes">
+      <xsl:attribute name="id"><xsl:value-of select="@data-id"/></xsl:attribute>
+      <xsl:attribute name="parentid"><xsl:value-of select="../../@data-id"/></xsl:attribute>
+      <xsl:attribute name="author"><xsl:value-of select="p"/></xsl:attribute>
+    </xsl:attribute-set>
+  
     <xsl:template match="/"> <!--Действия для элемент-документа (match="/") -->
       <xsl:element name="items"> <!--Создание тега items в который будут помещаться данные-->
         <!-- Ловим все теги ul по мере обхода элемент-документа (match="/")-->
 	      <xsl:apply-templates select="ul"/>
       </xsl:element>
     </xsl:template>
-    
-    <!--Я могу задавать атрибуты в тег item используя <xsl:attribute-set name="имя-набора"> наборы атрибутов-->
 
     <xsl:template match="ul"> <!--Действия для тегов ul-->
         <!-- Ловим все теги li по мере обхода тегов ul (match="ul"), что лежат в элемент-документе (match="/")-->
@@ -17,18 +22,15 @@
 
     <xsl:template match="li"> <!--Действия для тегов li-->
         <!--Создание необходимых переменных и установка их значений из содержимого тегов-->
+        <xsl:variable name="message" select="span"/>
+        <!--
         <xsl:variable name="user" select="p"/>
         <xsl:variable name="user_id" select="@data-id"/>
-        <xsl:variable name="message" select="span"/>
+        -->
         <xsl:variable name="parent_id" select="../../@data-id"/> <!--Выход из li в ul / из ul в li / взятие data-id этого li-->
         <!-- Таким образом сохраняется id того, кому отвечают-->
         
-        <!--Набор аттрибутов. Значения атрибутов берутся из переменных-->
-        <xsl:attribute-set name="item-attributes"> 
-          <xsl:attribute name="id">{$user_id}</xsl:attribute>
-          <xsl:attribute name="parentid">{$parent_id}</xsl:attribute>
-          <xsl:attribute name="author">{$user}</xsl:attribute>
-        </xsl:attribute-set>
+
         
         <xsl:choose>
             <xsl:when test="not($parent_id)"> <!--Если не найден тот, кому отвечают-->

@@ -1,13 +1,6 @@
 ﻿<?xml version = "1.0" encoding = "UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-    <!--Набор аттрибутов. Значения атрибутов берутся из переменных-->
-    <xsl:attribute-set name="item-attributes"> 
-      <xsl:attribute name="id">{$user_id}</xsl:attribute>
-      <xsl:attribute name="parentid">{$parent_id}</xsl:attribute>
-      <xsl:attribute name="author">{$user}</xsl:attribute>
-    </xsl:attribute-set>
-     
+  
     <xsl:template match="/"> <!--Действия для элемент-документа (match="/") -->
       <xsl:element name="items"> <!--Создание тега items в который будут помещаться данные-->
         <!-- Ловим все теги ul по мере обхода элемент-документа (match="/")-->
@@ -29,6 +22,13 @@
         <xsl:variable name="message" select="span"/>
         <xsl:variable name="parent_id" select="../../@data-id"/> <!--Выход из li в ul / из ul в li / взятие data-id этого li-->
         <!-- Таким образом сохраняется id того, кому отвечают-->
+        
+        <!--Набор аттрибутов. Значения атрибутов берутся из переменных-->
+        <xsl:attribute-set name="item-attributes"> 
+          <xsl:attribute name="id">{$user_id}</xsl:attribute>
+          <xsl:attribute name="parentid">{$parent_id}</xsl:attribute>
+          <xsl:attribute name="author">{$user}</xsl:attribute>
+        </xsl:attribute-set>
         
         <xsl:choose>
             <xsl:when test="not($parent_id)"> <!--Если не найден тот, кому отвечают-->

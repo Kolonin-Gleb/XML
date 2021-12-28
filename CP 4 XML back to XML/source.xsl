@@ -32,16 +32,17 @@
         
         <xsl:choose>
             <xsl:when test="not($parent_id)"> <!--Если не найден тот, кому отвечают-->
-<!--                <item id="{$user_id}" parentid="0" author="{$user}"> <!- -установка атрибутов в тег item- ->-->
+              <!--<item id="{$user_id}" parentid="0" author="{$user}"> <!- -установка атрибутов в тег item- ->-->
               <xsl:element name="item" use-attribute-sets="item-attributes"/> <!--установка атрибутов в тег item-->
                 
               <xsl:value-of select="$message"/> <!--Установка значения тега item-->
-<!--                </item>-->
+              <!--</item>-->
             </xsl:when>
             <xsl:otherwise> <!--Если найден тот, кому отвечают-->
-                <item id="{$user_id}" parentid="{$parent_id}" author="{$user}">
+                <!--<item id="{$user_id}" parentid="{$parent_id}" author="{$user}">-->
+                    <xsl:element name="item" use-attribute-sets="item-attributes"/> <!--установка атрибутов в тег item-->
                     <xsl:value-of select="$message"/>
-                </item>
+                <!--</item>-->
             </xsl:otherwise>
         </xsl:choose>
         

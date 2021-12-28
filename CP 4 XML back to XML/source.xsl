@@ -17,17 +17,24 @@
 
     <xsl:template match="li"> <!--Действия для тегов li-->
         <!--Создание необходимых переменных и установка их значений из содержимого тегов-->
+        <xsl:variable name="message" select="span"/>
+        <!--
         <xsl:variable name="user" select="p"/>
         <xsl:variable name="user_id" select="@data-id"/>
-        <xsl:variable name="message" select="span"/>
-        <xsl:variable name="parent_id" select="../../@data-id"/> <!--Выход из li в ul / из ul в li / взятие data-id этого li-->
+        <xsl:variable name="parent_id" select="../../@data-id"/>--> <!--Выход из li в ul / из ul в li / взятие data-id этого li-->
         <!-- Таким образом сохраняется id того, кому отвечают-->
         
-        <!--Набор аттрибутов. Значения атрибутов берутся из переменных-->
+        <!--Набор аттрибутов. Значения атрибутов берутся с помощью xpath выражений-->
         <xsl:attribute-set name="item-attributes"> 
-          <xsl:attribute name="id">{$user_id}</xsl:attribute>
-          <xsl:attribute name="parentid">{$parent_id}</xsl:attribute>
-          <xsl:attribute name="author">{$user}</xsl:attribute>
+          <xsl:attribute name="id">
+            <xsl:value-of select="@data-id" />
+          </xsl:attribute>
+          <xsl:attribute name="parentid">
+            <xsl:value-of select="../../@data-id" />
+          </xsl:attribute>
+          <xsl:attribute name="author">
+            <xsl:value-of select="p" />
+          </xsl:attribute>
         </xsl:attribute-set>
         
         <xsl:choose>
